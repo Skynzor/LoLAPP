@@ -59,7 +59,7 @@
                 android:layout_width="185dp"
                 android:layout_height="50dp"
                 android:background="@android:color/black"
-                app:srcCompat="@drawable/btn_Champion"
+                app:srcCompat="@drawable/btn_champion"
                 tools:layout_editor_absoluteX="0dp"
                 tools:layout_editor_absoluteY="517dp" />
 
@@ -68,7 +68,7 @@
                 android:layout_width="185dp"
                 android:layout_height="50dp"
                 android:background="@android:color/black"
-                app:srcCompat="@drawable/btn_Item"
+                app:srcCompat="@drawable/btn_item"
                 tools:layout_editor_absoluteX="199dp"
                 tools:layout_editor_absoluteY="517dp" />
 
@@ -76,7 +76,7 @@
                 android:id="@+id/imageView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:srcCompat="@drawable/LoL_New_Logo"
+                app:srcCompat="@drawable/lollogo"
                 tools:layout_editor_absoluteX="0dp"
                 tools:layout_editor_absoluteY="105dp" />
 
