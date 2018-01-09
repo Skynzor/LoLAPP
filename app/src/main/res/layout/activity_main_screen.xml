@@ -9,7 +9,7 @@
         android:id="@+id/btn_test"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/action_sign_in_short"
+        android:text="@string/action_sign_in"
         tools:layout_editor_absoluteX="122dp"
         tools:layout_editor_absoluteY="16dp"
         tools:ignore="MissingConstraints"
