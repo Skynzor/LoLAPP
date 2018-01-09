@@ -1,109 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/MainLayout"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    tools:layout_editor_absoluteY="25dp">
 
-    <android.support.design.widget.AppBarLayout
-        android:id="@+id/appbar"
-        android:layout_width="match_parent"
-        android:layout_height="50dp">
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="0dp"
+        android:layout_height="200dp"
+        android:contentDescription="@android:string/untitled"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/lollogo" />
 
-        <android.support.design.widget.CollapsingToolbarLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:contentScrim="?attr/colorPrimary"
-            app:layout_scrollFlags="scroll|enterAlways|enterAlwaysCollapsed"
-            app:layout_scrollInterpolator="@android:anim/decelerate_interpolator"
-            app:toolbarId="@+id/toolbar">
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="120dp"
+        android:layout_height="80dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginTop="5dp"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
-            <android.support.v7.widget.Toolbar
-                android:id="@+id/toolbar"
-                android:layout_width="match_parent"
-                android:layout_height="?attr/actionBarSize">
+        <TextView
+            android:id="@+id/txt_googleplus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="8dp"
+            android:text="Google+ Sign In"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.885" />
 
-            </android.support.v7.widget.Toolbar>
+        <ImageButton
+            android:id="@+id/imageButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="32dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginTop="4dp"
+            android:background="@android:color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/googleplusicon" />
+    </android.support.constraint.ConstraintLayout>
 
-            <TextView
-                android:id="@+id/txt_Login"
-                android:layout_width="115dp"
-                android:layout_height="32dp"
-                android:text="Logged in as:"
-                android:textColor="@android:color/white"
-                tools:layout_editor_absoluteX="101dp"
-                tools:layout_editor_absoluteY="73dp" />
-
-        </android.support.design.widget.CollapsingToolbarLayout>
-    </android.support.design.widget.AppBarLayout>
-
-    <android.support.v4.widget.NestedScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:layout_behavior="android.support.design.widget.AppBarLayout$ScrollingViewBehavior">
-
-        <android.support.constraint.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            tools:context="skynzor.lolapp.MainScreen">
-
-            <RelativeLayout
-                android:id="@+id/relative"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
-
-            </RelativeLayout>
-
-            <ImageButton
-                android:id="@+id/btn_Champion"
-                android:layout_width="185dp"
-                android:layout_height="50dp"
-                android:background="@android:color/black"
-                app:srcCompat="@drawable/btn_champion"
-                tools:layout_editor_absoluteX="0dp"
-                tools:layout_editor_absoluteY="517dp" />
-
-            <ImageButton
-                android:id="@+id/btn_Items"
-                android:layout_width="185dp"
-                android:layout_height="50dp"
-                android:background="@android:color/black"
-                app:srcCompat="@drawable/btn_item"
-                tools:layout_editor_absoluteX="199dp"
-                tools:layout_editor_absoluteY="517dp" />
-
-            <ImageView
-                android:id="@+id/imageView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:srcCompat="@drawable/lollogo"
-                tools:layout_editor_absoluteX="0dp"
-                tools:layout_editor_absoluteY="105dp" />
-
-            <ImageButton
-                android:id="@+id/btn_GooglePlus"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@android:color/white"
-                android:textAlignment="center"
-                android:tooltipText="Google+ Sign In"
-                app:srcCompat="@drawable/googleplusicon"
-                tools:layout_editor_absoluteX="277dp"
-                tools:layout_editor_absoluteY="30dp" />
-
-            <TextView
-                android:id="@+id/txt_GooglePlus"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/btn_GooglePlus"
-                android:layout_centerInParent="true"
-                android:singleLine="true"
-                android:text="Google+ Sign In"
-                android:textSize="18sp"
-                android:textStyle="bold"
-                tools:layout_editor_absoluteX="241dp"
-                tools:layout_editor_absoluteY="80dp" />
-
-        </android.support.constraint.ConstraintLayout>
-    </android.support.v4.widget.NestedScrollView>
-</android.support.design.widget.CoordinatorLayout>
+</android.support.constraint.ConstraintLayout>
