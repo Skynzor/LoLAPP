@@ -13,5 +13,6 @@
         tools:layout_editor_absoluteX="122dp"
         tools:layout_editor_absoluteY="16dp"
         tools:ignore="MissingConstraints"
+        tools:layout="center"
         />
 </android.support.constraint.ConstraintLayout>
