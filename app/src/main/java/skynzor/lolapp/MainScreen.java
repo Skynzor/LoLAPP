@@ -12,7 +12,7 @@ public class MainScreen extends AppCompatActivity {
 
         /**
          *
-         * Hier moet dan de button komen met een onclick event die in activity_main_screen.xml staat
+         * Hier moet dan de button komen met een onclick event die in activity_main_screen.xml staat.
          *
          */
 
