@@ -6,11 +6,52 @@
     android:layout_height="match_parent"
     tools:context="skynzor.lolapp.MainScreen">
 
-    <ImageButton
-        android:id="@+id/imageButton3"
+    <RelativeLayout
+        android:id="@+id/relative"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/textLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/btn_GooglePlus"
+        android:layout_centerInParent="true"
+        android:singleLine="true"
+        android:text="Google+ Sign In"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        tools:layout_editor_absoluteX="251dp"
+        tools:layout_editor_absoluteY="66dp" />
+
+    <ImageButton
+        android:id="@+id/btn_GooglePlus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@android:color/white"
+        android:textAlignment="center"
+        android:tooltipText="Google+ Sign In"
         app:srcCompat="@drawable/googleplusicon"
-        tools:layout_editor_absoluteX="306dp"
-        tools:layout_editor_absoluteY="0dp" />
+        tools:layout_editor_absoluteX="288dp"
+        tools:layout_editor_absoluteY="16dp" />
+    </RelativeLayout>
+
+    <ImageButton
+        android:id="@+id/btn_Champion"
+        android:layout_width="185dp"
+        android:layout_height="50dp"
+        android:background="@android:color/black"
+        app:srcCompat="@drawable/btn_Champion"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="517dp" />
+
+    <ImageButton
+        android:id="@+id/btn_Items"
+        android:layout_width="185dp"
+        android:layout_height="50dp"
+        android:background="@android:color/black"
+        app:srcCompat="@drawable/btn_Item"
+        tools:layout_editor_absoluteX="199dp"
+        tools:layout_editor_absoluteY="517dp" />
+
 </android.support.constraint.ConstraintLayout>
