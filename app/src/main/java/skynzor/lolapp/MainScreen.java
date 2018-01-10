@@ -1,30 +1,23 @@
 package skynzor.lolapp;
 
 import android.content.Intent;
-import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
-import android.widget.ImageButton;
+import android.widget.Button;
 
-import com.google.android.gms.common.ConnectionResult;
-import com.google.android.gms.common.SignInButton;
-import com.google.android.gms.common.api.GoogleApiClient;
+public class MainScreen extends AppCompatActivity implements View.OnClickListener{
 
-public class MainScreen extends AppCompatActivity implements View.OnClickListener, GoogleApiClient.OnConnectionFailedListener {
+    public Button goToProfile;
 
-    private GoogleApiClient googleApiClient;
-    private static final int REQ_CODE = 9001;
-    private SignInButton SignIn;
+
 
     public void init() {
-        SignIn = findViewById(R.id.btn_login);
+        goToProfile = findViewById(R.id.btn_goProfile);
 
-        SignIn.setOnClickListener(new View.OnClickListener() {
+        goToProfile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //Log.i("Lol_Testomgeving", "The button works!");
                 Intent showProfile = new Intent(MainScreen.this, userProfile.class);
 
                 startActivity(showProfile);
@@ -38,17 +31,15 @@ public class MainScreen extends AppCompatActivity implements View.OnClickListene
         setContentView(R.layout.activity_main_screen);
         init();
 
+
     }
 
 
 
     @Override
-    public void onClick(View view) {
+    public void onClick(View v) {
 
-    }
 
-    @Override
-    public void onConnectionFailed(@NonNull ConnectionResult connectionResult) {
 
     }
 }
