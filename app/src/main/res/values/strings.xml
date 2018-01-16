@@ -15,7 +15,11 @@
     </string>
     <string name="title_activity_settings">Settings</string>
 
-    <!-- Strings related to Settings -->
+    <!-- Strings related to LOG OUT -->
+    <string name="txt_LoggedInAs">Logged in as:</string>
+    <string name="txt_userLoggedInAs">Guest</string>
+    <string name="txt_emailUserLoggedInAs"></string>
+
 
     <!-- Example General settings -->
     <string name="pref_header_general">General</string>

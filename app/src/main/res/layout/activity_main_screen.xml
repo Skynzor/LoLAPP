@@ -10,98 +10,101 @@
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar"
-        android:layout_width="383dp"
+        android:layout_width="match_parent"
         android:layout_height="59dp"
         android:background="?attr/colorPrimary"
         android:minHeight="?attr/actionBarSize"
         android:theme="?attr/actionBarTheme"
+        android:visibility="visible"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <!--<TextView
-        android:id="@+id/txt_toolbar"
-        android:layout_width="85dp"
-        android:layout_height="21dp"
-        android:layout_marginLeft="192dp"
-        android:text="Logged in as:"
-        android:textColor="@android:color/white"
-        app:layout_constraintLeft_toLeftOf="parent"
-        tools:layout_editor_absoluteY="24dp" />
+    <ImageView
+        android:id="@+id/img_avatar"
+        android:layout_width="63dp"
+        android:layout_height="55dp"
+        android:visibility="visible"
+        app:srcCompat="@drawable/defaultavatar" />
 
     <TextView
-        android:id="@+id/txt_username"
-        android:layout_width="97dp"
-        android:layout_height="22dp"
-        android:layout_marginTop="24dp"
-        android:text="UsernameHere"
-        android:textColor="@android:color/white"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:layout_editor_absoluteX="280dp" />-->
-
-    <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/txt_LoggedInAs"
         android:layout_width="0dp"
-        android:layout_height="200dp"
-        android:contentDescription="@android:string/untitled"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/lollogo" />
+        android:layout_height="17dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="2dp"
+        android:text="@string/txt_LoggedInAs"
+        android:textColor="@android:color/white"
+        app:layout_constraintEnd_toStartOf="@+id/btn_googlePlusSignIn"
+        app:layout_constraintHorizontal_bias="0.193"
+        app:layout_constraintStart_toEndOf="@+id/img_avatar"
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <android.support.constraint.ConstraintLayout
-        android:id="@+id/constraintLayout"
-        android:layout_width="134dp"
-        android:layout_height="122dp"
-        android:layout_marginRight="16dp"
-        android:layout_marginTop="40dp"
+    <TextView
+        android:id="@+id/txt_userLoggedInAs"
+        android:layout_width="0dp"
+        android:layout_height="17dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="2dp"
+        android:text="@string/txt_userLoggedInAs"
+        android:textColor="@android:color/white"
+        android:textStyle="bold|italic"
+        app:layout_constraintEnd_toStartOf="@+id/btn_googlePlusSignIn"
+        app:layout_constraintHorizontal_bias="0.2"
+        app:layout_constraintStart_toEndOf="@+id/img_avatar"
+        app:layout_constraintTop_toBottomOf="@+id/txt_LoggedInAs" />
+
+    <TextView
+        android:id="@+id/txt_emailUserLoggedInAs"
+        android:layout_width="0dp"
+        android:layout_height="19dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="2dp"
+        android:text="@string/txt_emailUserLoggedInAs"
+        android:textColor="@android:color/white"
+        android:textStyle="italic"
+        app:layout_constraintEnd_toStartOf="@+id/btn_googlePlusSignIn"
+        app:layout_constraintHorizontal_bias="0.2"
+        app:layout_constraintStart_toEndOf="@+id/img_avatar"
+        app:layout_constraintTop_toBottomOf="@+id/txt_userLoggedInAs" />
+
+    <Button
+        android:id="@+id/btn_signOut"
+        android:layout_width="110dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="5dp"
+        android:text="Sign Out"
+        android:visibility="gone"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.gms.common.SignInButton
+        android:id="@+id/btn_googlePlusSignIn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:text="Button"
+        android:visibility="visible"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <Button
-            android:id="@+id/btn_goProfile"
-            android:layout_width="wrap_content"
-            android:layout_height="48dp"
-            android:layout_marginBottom="36dp"
-            android:text="Go to profile"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent" />
+    </com.google.android.gms.common.SignInButton>
 
-    </android.support.constraint.ConstraintLayout>
-
-    <LinearLayout
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginTop="133dp"
-        android:orientation="horizontal"
+    <ImageButton
+        android:id="@+id/btn_goProfile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView"
-        app:layout_constraintVertical_bias="0.0">
+        app:srcCompat="@drawable/defaultprofile" />
 
-        <ImageButton
-            android:id="@+id/btnChampions"
-            android:layout_width="199dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:background="@android:color/black"
-            app:srcCompat="@drawable/btn_champion" />
-
-        <ImageButton
-            android:id="@+id/btnItems"
-            android:layout_width="199dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:background="@android:color/black"
-            app:srcCompat="@drawable/btn_item" />
-    </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>
