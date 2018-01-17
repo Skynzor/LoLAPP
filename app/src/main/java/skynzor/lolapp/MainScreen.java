@@ -4,12 +4,14 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.media.Image;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.GridView;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -27,6 +29,8 @@ import com.google.android.gms.common.api.OptionalPendingResult;
 import com.google.android.gms.common.api.ResultCallback;
 import com.google.android.gms.common.api.Status;
 
+import java.util.ArrayList;
+
 public class MainScreen extends AppCompatActivity implements View.OnClickListener, GoogleApiClient.OnConnectionFailedListener {
 
     public SignInButton SignIn;
@@ -37,9 +41,42 @@ public class MainScreen extends AppCompatActivity implements View.OnClickListene
     public ImageView avatar;
     public GoogleApiClient googleApiClient;
     public static final int REQ_CODE = 9001;
+    private GridView gridViewChampsAndItems;
 
+    public void init() {
+        ImageButton btnChampions = findViewById(R.id.btn_champions);
+        ImageButton btnItems = findViewById(R.id.btn_item);
 
+        btnChampions.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                showChampsAndItems("champlistJSON.json");
+            }
+        });
 
+       btnItems.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View view) {
+                showChampsAndItems("itemlistJSON.json");
+            }
+        });
+    }
+
+    public void showChampsAndItems(String filename)
+    {
+        gridViewChampsAndItems = (GridView)findViewById(R.id.gridViewChampsAndItems);
+        final GetRiotJson getRiotJson = new GetRiotJson(MainScreen.this, gridViewChampsAndItems);
+
+        if(filename == "champlistJSON.json")
+        {
+            getRiotJson.getRiotJSON("champlistJSON.json");
+        }
+        if(filename == "itemlistJSON.json")
+        {
+            getRiotJson.getRiotJSON("itemlistJSON.json");
+        }
+    }
 
     public void goProfile() {
         goProfile = findViewById(R.id.btn_goProfile);
@@ -59,6 +96,7 @@ public class MainScreen extends AppCompatActivity implements View.OnClickListene
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_screen);
         goProfile();
+        init();
 
         SignIn = findViewById(R.id.btn_googlePlusSignIn);
         SignIn.setOnClickListener(this);
@@ -68,7 +106,7 @@ public class MainScreen extends AppCompatActivity implements View.OnClickListene
         email = findViewById(R.id.txt_emailUserLoggedInAs);
         avatar = findViewById(R.id.img_avatar);
 
-        GoogleSignInOptions signInOptions = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN).requestEmail().build();
+        GoogleSignInOptions signInOptions = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN).requestEmail().requestProfile().build();
         googleApiClient = new GoogleApiClient.Builder(this).enableAutoManage(this,this).addApi(Auth.GOOGLE_SIGN_IN_API,signInOptions).build();
 
     }
@@ -91,13 +129,15 @@ public class MainScreen extends AppCompatActivity implements View.OnClickListene
         super.onActivityResult(requestCode, resultCode, data);
 
         if(requestCode==REQ_CODE){
+            if (resultCode == RESULT_OK) {
 
-            GoogleSignInResult result = Auth.GoogleSignInApi.getSignInResultFromIntent(data);
-            handleResult(result);
+                GoogleSignInResult result = Auth.GoogleSignInApi.getSignInResultFromIntent(data);
+                handleResult(result);
+            } else {
+                    Log.d("Dit is een onActivityResult test.", "Result is niet OK." );
+                }
+            }
         }
-    }
-
-
 
     @Override
     public void onConnectionFailed(@NonNull ConnectionResult connectionResult) {
@@ -110,30 +150,56 @@ public class MainScreen extends AppCompatActivity implements View.OnClickListene
     }
 
     public void handleResult(GoogleSignInResult result){
+        String username = null;
+        String useremail = null;
+        android.net.Uri img_url = null;
+
 
         if(result.isSuccess()){
-            GoogleSignInAccount account = result.getSignInAccount();
+            try {
+                GoogleSignInAccount account = result.getSignInAccount();
 
-            final ProgressDialog progressDialog = new ProgressDialog(this);
-            progressDialog.setMessage("Fetching Google+ Sign in...");
-            progressDialog.show();
+                Thread.sleep(2000);
 
-            String username = account.getDisplayName();
-            String useremail = account.getEmail();
-            String img_url = account.getPhotoUrl().toString();
-            name.setText(username);
-            email.setText(useremail);
-            Glide.with(this).load(img_url).into(avatar);
-            updateUI(true);
+                final ProgressDialog progressDialog = new ProgressDialog(this);
+                progressDialog.setMessage("Fetching Google+ Sign in...");
+                progressDialog.show();
+
+                username = account.getDisplayName();
+                useremail = account.getEmail();
+
+                //img_url = account.getPhotoUrl().toString();
+                img_url = account.getPhotoUrl();
+
             progressDialog.dismiss();
-        } else {
-            updateUI(false);
+
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+                    name.setText(username);
+                    email.setText(useremail);
+
+            if(img_url == null)
+            {
+                avatar.setImageDrawable(getResources().getDrawable(R.drawable.defaultavatar, getApplicationContext().getTheme()));
+            }
+            else
+            {
+                Glide.with(this).load(img_url).into(avatar);
+            }
+                    updateUI(true);
         }
+        else
+            {
+                updateUI(false);
+            }
     }
 
     @Override
     public void onStart() {
         super.onStart();
+
+        showChampsAndItems("champlistJSON.json");
 
         OptionalPendingResult<GoogleSignInResult> opr = Auth.GoogleSignInApi.silentSignIn(googleApiClient);
         if (opr.isDone()) {
@@ -141,14 +207,13 @@ public class MainScreen extends AppCompatActivity implements View.OnClickListene
             // and the GoogleSignInResult will be available instantly. We can try and retrieve an
             // authentication code.
             //Log.d(TAG, "Got cached sign-in");
-            final ProgressDialog progressDialog = new ProgressDialog(this);
-            progressDialog.setMessage("Fetching Google+ Sign in...");
-            progressDialog.show();
-
+            //final ProgressDialog progressDialog = new ProgressDialog(this);
+            //progressDialog.setMessage("Fetching Google+ Sign in...");
+            //progressDialog.show();
             GoogleSignInResult result = opr.get();
             handleResult(result);
 
-            progressDialog.dismiss();
+           // progressDialog.dismiss();
         } else {
             // If the user has not previously signed in on this device or the sign-in has expired,
             // this asynchronous branch will attempt to sign in the user silently.  Cross-device

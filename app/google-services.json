@@ -1,33 +1,33 @@
 {
   "project_info": {
-    "project_number": "406339580788",
-    "project_id": "lolapp-191713"
+    "project_number": "1085614510853",
+    "project_id": "lolappprimula"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:406339580788:android:bc53c224725b71f4",
+        "mobilesdk_app_id": "1:1085614510853:android:bc53c224725b71f4",
         "android_client_info": {
           "package_name": "skynzor.lolapp"
         }
       },
       "oauth_client": [
         {
-          "client_id": "406339580788-e0ddp1shkusm0bl2rdjm5iaqkg6huqmk.apps.googleusercontent.com",
+          "client_id": "1085614510853-uk96ikd2ohd4f016m2cehq1g0udaucpt.apps.googleusercontent.com",
           "client_type": 3
         },
         {
-          "client_id": "406339580788-0mjhvru33suqct8u445h0lfi4jebod6u.apps.googleusercontent.com",
+          "client_id": "1085614510853-69brbbfk4v0ibdm2vbejdpd81m4dltho.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "skynzor.lolapp",
-            "certificate_hash": "75fed54439161066f24ae9e3827d1beeb2d94e18"
+            "certificate_hash": "10d4504ebca8c30267cd89c4b03ae8915e0fdb87"
           }
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyA3Sa0aOaghEpWeVd6SrELsLTJcjE22Tqs"
+          "current_key": "AIzaSyCXZq_8-iyw69TYn5XSndVOMqGx5_NFlno"
         }
       ],
       "services": {

@@ -3,9 +3,11 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://C:\Users\Skynzor\AndroidStudioProjects\LoLAPP_Googleplus\LoLAPP.iml" filepath="C:\Users\Skynzor\AndroidStudioProjects\LoLAPP_Googleplus\LoLAPP.iml" />
-      <module fileurl="file://$PROJECT_DIR$/LoLAPP_Googleplus.iml" filepath="$PROJECT_DIR$/LoLAPP_Googleplus.iml" />
+      <module fileurl="file://$PROJECT_DIR$/LoLAPPRene.iml" filepath="$PROJECT_DIR$/LoLAPPRene.iml" />
+      <module fileurl="file://C:\Users\Primularose\AndroidStudioProjects\LoLAPP\LoLAPPRene\LoLAPP_Googleplus.iml" filepath="C:\Users\Primularose\AndroidStudioProjects\LoLAPP\LoLAPPRene\LoLAPP_Googleplus.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://C:\Users\Skynzor\AndroidStudioProjects\LoLAPP_Googleplus\app\app.iml" filepath="C:\Users\Skynzor\AndroidStudioProjects\LoLAPP_Googleplus\app\app.iml" />
+      <module fileurl="file://C:\Users\Primularose\AndroidStudioProjects\LoLAPP\LoLAPPRene\app\app.iml" filepath="C:\Users\Primularose\AndroidStudioProjects\LoLAPP\LoLAPPRene\app\app.iml" />
     </modules>
   </component>
 </project>

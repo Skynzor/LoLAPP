@@ -100,10 +100,10 @@ public class userProfile extends AppCompatActivity  implements View.OnClickListe
             String username = account.getDisplayName();
             String useremail = account.getEmail();
             String img_url = account.getPhotoUrl().toString();
-            name.setText(username);
-            email.setText(useremail);
-            Glide.with(this).load(img_url).into(prof_pic);
-            updateUI(true);
+                name.setText(username);
+                email.setText(useremail);
+                Glide.with(this).load(img_url).into(prof_pic);
+                updateUI(true);
         } else {
             updateUI(false);
         }
